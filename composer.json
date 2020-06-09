@@ -1,0 +1,40 @@
+{
+    "name": "sensorium/lateral-cte",
+    "description": "Extends query builder with lateral joins and cte",
+    "homepage": "https://www.sensorium69.nl",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Christiaan Ras",
+            "email": "christiaan.ras@sensorium69.nl",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "staudenmeir/laravel-cte": "^1.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^4.0",
+        "phpunit/phpunit": "^8.0",
+        "illuminate/database": "6.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sensorium\\LateralCte\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable",
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Sensorium\\LateralCte\\DatabaseServiceProvider"
+            ]
+        }
+    }
+}

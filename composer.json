@@ -1,6 +1,6 @@
 {
-    "name": "sensorium/lateral-cte",
-    "description": "Extends query builder with lateral joins and cte",
+    "name": "sensorium/lateral-joins",
+    "description": "Extends Laravel query builder with lateral joins",
     "homepage": "https://www.sensorium69.nl",
     "license": "MIT",
     "authors": [
@@ -11,8 +11,7 @@
         }
     ],
     "require": {
-        "php": ">=7.2",
-        "staudenmeir/laravel-cte": "^1.0"
+        "php": ">=7.2"
     },
     "require-dev": {
         "orchestra/testbench": "^4.0",

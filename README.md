@@ -1,5 +1,5 @@
 # Introduction
-This Laravel extension adds support for lateral joins and common table expressions (CTE) [staudenmeir/laravel-cte](https://github.com/staudenmeir/laravel-cte)
+This Laravel extension adds support for lateral joins to Laravel query builder.
 
 Supports Laravel 5.5+.
 
@@ -13,10 +13,10 @@ Supports Laravel 5.5+.
     "repositories": [
         {
             "type": "vcs",
-            "url": "https://github.com/sensorium-bv/lateral-cte"
+            "url": "https://github.com/sensorium-bv/lateral-joins"
         }
     ],
-* composer require sensorium/lateral-cte:dev-master
+* composer require sensorium/lateral-joins:dev-master
 
 ## Usage
 

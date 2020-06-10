@@ -1,10 +1,9 @@
 <?php
 
-namespace Sensorium\LateralCte;
+namespace Sensorium\LateralJoins;
 
-//use Illuminate\Database\Query\Builder as Base;
+use Illuminate\Database\Query\Builder as Base;
 use Illuminate\Database\Query\Expression;
-use Staudenmeir\LaravelCte\Query\Builder as Base;
 
 class Builder extends Base
 {
@@ -14,7 +13,7 @@ class Builder extends Base
 
         $expression = 'lateral ('.$query.') as '.$this->grammar->wrapTable($as);
 
-        $join = $this->newLateralCteClause($this, $type, new Expression($expression));
+        $join = $this->newLateralJoinsClause($this, $type, new Expression($expression));
 
         $this->joins[] = $join;
 
@@ -28,7 +27,7 @@ class Builder extends Base
     	return $this->joinLateral($query, $as, 'left');
     }
 
-    protected function newLateralCteClause(self $parentQuery, $type, $table)
+    protected function newLateralJoinsClause(self $parentQuery, $type, $table)
     {
         return new LateralJoinClause($parentQuery, $type, $table);
     }

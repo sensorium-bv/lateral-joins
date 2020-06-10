@@ -1,6 +1,6 @@
 <?php
 
-namespace Sensorium\LateralCte;
+namespace Sensorium\LateralJoins;
 
 use Closure;
 use Illuminate\Database\Query\Builder;

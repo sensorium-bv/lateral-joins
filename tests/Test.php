@@ -6,7 +6,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Orchestra\Testbench\TestCase;
-use Sensorium\LateralCte\DatabaseServiceProvider;
+use Sensorium\LateralJoins\DatabaseServiceProvider;
 use Staudenmeir\LaravelCte\Query\Grammars\PostgresGrammar;
 use Tests\Models\Order;
 use Tests\Models\User;
@@ -120,7 +120,7 @@ class Test extends TestCase
         $this->assertEquals(Carbon::now()->subHours(12)->toDateTimeString(), $result->firstWhere('name', 'a')->next_order);
     }
 
-    public function test_lateral_with_cte()
+    /*public function test_lateral_with_cte()
     {
         $sub1 = DB::table('orders')
                     ->select('user_id', DB::raw('min(ordered_at) AS ordered_at'))
@@ -146,6 +146,6 @@ class Test extends TestCase
         $this->assertCount(2, $result);
         $this->assertEquals(Carbon::now()->subHours(12)->toDateTimeString(), $result->firstWhere('name', 'a')->next_order);
         $this->assertNull($result->firstWhere('name', 'b')->next_order);
-    }
+    }*/
 
 }

@@ -1,13 +1,13 @@
 <?php
 
-namespace Sensorium\LateralCte;
+namespace Sensorium\LateralJoins;
 
 use Illuminate\Database\Connectors\ConnectionFactory;
 use Illuminate\Database\DatabaseManager;
 use Illuminate\Database\DatabaseServiceProvider as BaseProvider;
 use Illuminate\Database\Schema\Grammars\PostgresGrammar as SchemaGrammar;
-use Sensorium\LateralCte\Connection;
-use Sensorium\LateralCte\Grammars\PostgresGrammar;
+use Sensorium\LateralJoins\Connection;
+use Sensorium\LateralJoins\Grammars\PostgresGrammar;
 
 class DatabaseServiceProvider extends BaseProvider
 {

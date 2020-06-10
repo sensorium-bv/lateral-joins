@@ -21,7 +21,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Sensorium\\LateralCte\\": "src"
+            "Sensorium\\LateralJoins\\": "src"
         }
     },
     "autoload-dev": {
@@ -33,7 +33,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Sensorium\\LateralCte\\DatabaseServiceProvider"
+                "Sensorium\\LateralJoins\\DatabaseServiceProvider"
             ]
         }
     }

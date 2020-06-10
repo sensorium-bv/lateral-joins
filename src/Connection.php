@@ -1,6 +1,6 @@
 <?php
 
-namespace Sensorium\LateralCte;
+namespace Sensorium\LateralJoins;
 
 use Illuminate\Database\PostgresConnection;
 

@@ -1,11 +1,10 @@
 <?php
 
-namespace Sensorium\LateralCte\Grammars;
+namespace Sensorium\LateralJoins\Grammars;
 
 use Illuminate\Database\Query\Builder;
-//use Illuminate\Database\Query\Grammars\PostgresGrammar as Base;
-use Sensorium\LateralCte\LateralJoinClause;
-use Staudenmeir\LaravelCte\Query\Grammars\PostgresGrammar as Base;
+use Illuminate\Database\Query\Grammars\PostgresGrammar as Base;
+use Sensorium\LateralJoins\LateralJoinClause;
 
 class PostgresGrammar extends Base
 {
@@ -15,7 +14,7 @@ class PostgresGrammar extends Base
 	 *   @param  LateralJoinClause $join  [description]
 	 *   @return [type]                   [description]
 	 */
-	public function compileLateralCte(Builder $query, LateralJoinClause $join): string
+	public function compileLateralJoins(Builder $query, LateralJoinClause $join): string
 	{
 		$on = ($join->type === 'left') ? 'on true' : '';
 
@@ -30,7 +29,7 @@ class PostgresGrammar extends Base
         return collect($joins)->map(function ($join) use ($query) {
         	if($join instanceof LateralJoinClause) {
 
-        		return $this->compileLateralCte($query, $join);
+        		return $this->compileLateralJoins($query, $join);
 
         	}else{
         		$table = $this->wrapTable($join->table);

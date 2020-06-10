@@ -3,6 +3,7 @@
 namespace Sensorium\LateralJoins;
 
 use Illuminate\Database\PostgresConnection;
+use Sensorium\LateralJoins\Query\Builder;
 
 class Connection extends PostgresConnection {
     //@Override

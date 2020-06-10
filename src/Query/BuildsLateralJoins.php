@@ -1,11 +1,11 @@
 <?php
 
-namespace Sensorium\LateralJoins;
+namespace Sensorium\LateralJoins\Query;
 
-use Illuminate\Database\Query\Builder as Base;
 use Illuminate\Database\Query\Expression;
+use Sensorium\LateralJoins\LateralJoinClause;
 
-class Builder extends Base
+trait BuildsLateralJoins
 {
 	public function joinLateral($query, $as, $type = 'cross')
     {

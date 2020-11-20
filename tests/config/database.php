@@ -3,7 +3,7 @@
 return [
     'pgsql' => [
         'driver' => 'pgsql',
-        'host' => 'postgres',
+        'host' => 'postgres-timescale',
         'port' => '5432',
         'database' => 'lateral_join',
         'username' => 'default',

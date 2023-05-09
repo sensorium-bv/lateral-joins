@@ -4,6 +4,7 @@ namespace Sensorium\LateralJoins\Grammars;
 
 use Illuminate\Database\Query\Builder;
 use Sensorium\LateralJoins\LateralJoinClause;
+use Illuminate\Support\Facades\DB;
 
 trait CompilesLateralJoins
 {
@@ -17,7 +18,7 @@ trait CompilesLateralJoins
 	{
 		$on = ($join->type === 'left') ? 'on true' : '';
 
-		return "{$join->type} join {$join->table} $on";
+		return "{$join->type} join {$join->table->getValue(DB::connection()->getQueryGrammar())} $on";
 	}
 
 	/**

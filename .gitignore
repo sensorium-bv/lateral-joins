@@ -1,4 +1,9 @@
+# phpstorm
+.idea
+
+# vendor
+vendor/
+
+# PHPUnit
+/.phpunit.cache
 .phpunit.result.cache
-composer.lock
-LICENSE.md
-vendor

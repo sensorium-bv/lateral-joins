@@ -1,5 +1,7 @@
 <?php
 
+namespace Tests;
+
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Schema\Blueprint;
@@ -7,7 +9,6 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Orchestra\Testbench\TestCase;
 use Sensorium\LateralJoins\DatabaseServiceProvider;
-use Staudenmeir\LaravelCte\Query\Grammars\PostgresGrammar;
 use Tests\Models\Order;
 use Tests\Models\User;
 

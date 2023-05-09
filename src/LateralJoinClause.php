@@ -4,6 +4,7 @@ namespace Sensorium\LateralJoins;
 
 use Closure;
 use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Query\Expression;
 
 class LateralJoinClause extends Builder
 {
@@ -12,14 +13,14 @@ class LateralJoinClause extends Builder
      *
      * @var string
      */
-    public $type;
+    public string $type;
 
     /**
      * The table the join clause is joining to.
      *
-     * @var string
+     * @var Expression
      */
-    public $table;
+    public Expression $table;
 
     /**
      * The connection of the parent query builder.
@@ -57,7 +58,7 @@ class LateralJoinClause extends Builder
      * @param  string  $table
      * @return void
      */
-    public function __construct(Builder $parentQuery, $type, $table)
+    public function __construct(Builder $parentQuery, string $type, Expression $table)
     {
         $this->type = $type;
         $this->table = $table;

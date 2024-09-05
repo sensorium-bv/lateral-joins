@@ -3,20 +3,19 @@
 namespace Tests;
 
 use Carbon\Carbon;
+use Illuminate\Contracts\Config\Repository;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Orchestra\Testbench\TestCase;
 use Sensorium\LateralJoins\DatabaseServiceProvider;
-use Tests\Models\Order;
-use Tests\Models\User;
 
-class Test extends TestCase 
+class Test extends TestCase
 {
-	public function setUp(): void
-	{
-		parent::setUp();
+    public function setUp(): void
+    {
+        parent::setUp();
 
         Schema::dropAllTables();
 
@@ -43,27 +42,38 @@ class Test extends TestCase
         Order::create(['user_id' => 2, 'ordered_at' => Carbon::now()]);
 
         Model::reguard();
-	}
-
-	public function tearDown(): void
-    {
-    	parent::tearDown();
     }
 
-	protected function getPackageProviders($app)
+    public function tearDown(): void
+    {
+        parent::tearDown();
+    }
+
+    protected function getPackageProviders($app)
     {
         return [
             DatabaseServiceProvider::class
         ];
     }
 
-    protected function getEnvironmentSetUp($app)
+    protected function defineEnvironment($app)
     {
         // Setup default database to use sqlite :memory:
-        $config = require __DIR__.'/config/database.php';
-
-        $app['config']->set('database.default', 'testing');
-        $app['config']->set('database.connections.testing', $config['pgsql']);
+        tap($app['config'], function (Repository $config) {
+            $config->set('database.default', 'testbench');
+            $config->set('database.connections.testbench', [
+                'driver' => 'pgsql',
+                'host' => 'localhost',
+                'port' => '5432',
+                'database' => 'lateral_join',
+                'username' => 'default',
+                'password' => 'secret',
+                'charset' => 'utf8',
+                'prefix' => '',
+                'schema' => 'public',
+                'sslmode' => 'prefer',
+            ]);
+        });
     }
 
     public function test_can_perform_lateral_left_join()
@@ -148,5 +158,15 @@ class Test extends TestCase
         $this->assertEquals(Carbon::now()->subHours(12)->toDateTimeString(), $result->firstWhere('name', 'a')->next_order);
         $this->assertNull($result->firstWhere('name', 'b')->next_order);
     }*/
+
+}
+
+class User extends Model
+{
+
+}
+
+class Order extends Model
+{
 
 }

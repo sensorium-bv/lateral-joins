@@ -3,7 +3,7 @@
 return [
     'pgsql' => [
         'driver' => 'pgsql',
-        'host' => 'pgsql',
+        'host' => 'localhost',
         'port' => '5432',
         'database' => 'lateral_join',
         'username' => 'default',
